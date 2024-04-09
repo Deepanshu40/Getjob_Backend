@@ -18,6 +18,7 @@ app.use(cors({
     origin: [process.env.FRONTEND_URL],
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
     credentials:true,
+    allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,Authorization',
 }))
 
 // Middleware to set CORS headers globally
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'https://get-job-t31r.vercel.app');
   res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   next();
 });
 
