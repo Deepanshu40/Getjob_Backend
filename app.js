@@ -13,7 +13,6 @@ import {errorHandler} from './middlewares/error.js'
 const app = express();
 dotenv.config({path:'./config/config.env'});
 
-console.log(process.env.FRONTEND_URL);
 
 app.use(cors({
     origin: [process.env.FRONTEND_URL],
@@ -32,6 +31,7 @@ app.use(fileUpload({
 
 app.use((req, res) => {
 console.log('axios request is going through server');
+res.send('axios request is going through server');
 })
 
 app.use('/api/v1/user', userRouter);
