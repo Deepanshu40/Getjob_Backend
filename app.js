@@ -28,7 +28,7 @@ app.use(fileUpload({
     tempFileDir : '/tmp/'
 }));
 
-app.use('/', (req, res) => {
+app.get('/try', (req, res) => {
 console.log('axios request is going through server');
 res.send('axios request is going through server');
 })
