@@ -19,6 +19,7 @@ app.use(cors({
     credentials:true
 }))
 
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(urlencoded({extended:true}));
@@ -26,6 +27,11 @@ app.use(fileUpload({
     useTempFiles : true,
     tempFileDir : '/tmp/'
 }));
+
+app.use((req, res) => {
+console.log('axios request is going through server');
+})
+
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/application', applicationRouter);
 app.use('/api/v1/job', jobRouter);
