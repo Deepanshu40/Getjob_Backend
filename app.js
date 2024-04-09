@@ -11,7 +11,7 @@ import {errorHandler} from './middlewares/error.js'
 
 
 const app = express();
-dotenv.config({path:'./config/config.env'});
+// dotenv.config({path:'./config/config.env'});
 
 
 // app.use(cors({
@@ -20,27 +20,27 @@ dotenv.config({path:'./config/config.env'});
 //     credentials:true,
 // }))
 
-app.use(cookieParser());
-app.use(express.json());
-app.use(urlencoded({extended:true}));
-app.use(fileUpload({
-    useTempFiles : true,
-    tempFileDir : '/tmp/'
-}));
+// app.use(cookieParser());
+// app.use(express.json());
+// app.use(urlencoded({extended:true}));
+// app.use(fileUpload({
+//     useTempFiles : true,
+//     tempFileDir : '/tmp/'
+// }));
 
 app.use(cors())
  
 
-app.get('/try', (req, res) => {
+app.use('/', (req, res) => {
 console.log('axios request is going through server');
 res.send('axios request is going through server');
 })
 
-app.use('/api/v1/user', userRouter);
-app.use('/api/v1/application', applicationRouter);
-app.use('/api/v1/job', jobRouter);
+// app.use('/api/v1/user', userRouter);
+// app.use('/api/v1/application', applicationRouter);
+// app.use('/api/v1/job', jobRouter);
 
-dbConnection();
+// dbConnection();
 
 
 app.use(errorHandler);
