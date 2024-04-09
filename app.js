@@ -14,11 +14,11 @@ const app = express();
 dotenv.config({path:'./config/config.env'});
 
 
-app.use(cors({
-    origin: [process.env.FRONTEND_URL],
-    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
-    credentials:true,
-}))
+// app.use(cors({
+//     origin: [process.env.FRONTEND_URL],
+//     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
+//     credentials:true,
+// }))
 
 app.use(cookieParser());
 app.use(express.json());
@@ -27,6 +27,9 @@ app.use(fileUpload({
     useTempFiles : true,
     tempFileDir : '/tmp/'
 }));
+
+app.use(cors())
+ 
 
 app.get('/try', (req, res) => {
 console.log('axios request is going through server');
