@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken';
 import User from '../models/userSchema.js'
 
 export const isAuthorised =  wrapAsync(async function(req, res, next) {
+console.log('request received for is Authorised)';
+console.log(req.cookies);
     const {token} = req.cookies;
     if (!token) {
         return next(new errorHandler('User not authorized', 400))
