@@ -18,17 +18,17 @@ app.use(cors({
     origin: [process.env.FRONTEND_URL],
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
     credentials:true,
-    allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,Authorization',
+    // allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,Authorization',
 }))
 
 // Middleware to set CORS headers globally
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', [process.env.FRONTEND_URL]);
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', [process.env.FRONTEND_URL]);
+//   res.header('Access-Control-Allow-Credentials', true);
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+//   next();
+// });
 
 app.use(cookieParser());
 app.use(express.json());
