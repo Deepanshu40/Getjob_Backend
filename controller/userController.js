@@ -55,6 +55,8 @@ export const login = wrapAsync(async (req, res, next) => {
 export const logout = wrapAsync(async (req, res, next) => {
     res.status(201).cookie('token', '', {
         httOnly: true,
+        sameSite: 'None', 
+        secure: true,
         expires: new Date(Date.now()),
     }).json({
         success: true,
