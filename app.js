@@ -39,8 +39,6 @@ app.use(fileUpload({
 }));
 
 // app.use(cors())
- 
-
 // app.use('/', (req, res) => {
 // console.log('axios request is going through server');
 // res.send('axios request is going through server');

@@ -15,7 +15,6 @@ export const register = wrapAsync( async (req, res, next) => {
         return next(new ErrorHandler('email already registered'));
     }
  
-    console.log('reached');
     let user = new User({name, email, phone, role, password})
         
     await user.save();

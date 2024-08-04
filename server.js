@@ -10,6 +10,6 @@ cloudinary.v2.config({
 
 
 app.listen(process.env.PORT, () => {
-    console.log(`server running on port ${process.env.Port} Backend`);
+    console.log(`server running on port ${process.env.PORT} Backend`);
 }); 
 
